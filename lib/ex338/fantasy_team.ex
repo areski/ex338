@@ -168,11 +168,14 @@ defmodule Ex338.FantasyTeam do
 
   def preload_assocs_by_league_and_date(
         query,
-        %FantasyLeague{id: league_id},
-        datetime
+        %FantasyLeague{id: league_id, championships_start_at: start_datetime},
+        end_datetime
       ) do
-    champ_results = ChampionshipResult.overall_before_date_in_year(ChampionshipResult, datetime)
-    champ_with_events = ChampWithEventsResult.before_date_in_year(ChampWithEventsResult, datetime)
+    champ_results =
+      ChampionshipResult.overall_from_range(ChampionshipResult, start_datetime, end_datetime)
+
+    champ_with_events =
+      ChampWithEventsResult.before_date_in_year(ChampWithEventsResult, end_datetime)
 
     do_preload_assocs_by_league(query, league_id, champ_results, champ_with_events)
   end
