@@ -50,6 +50,7 @@ defmodule Ex338.Mixfile do
       {:gettext, "~> 0.13"},
       {:honeybadger, "~> 0.12"},
       {:jason, "~> 1.0"},
+      {:kaffy, "~> 0.6.2"},
       {:mixpanel_api_ex, "~> 1.0.1"},
       {:number, "~> 1.0.0"},
       {:phoenix, "~> 1.5.1"},

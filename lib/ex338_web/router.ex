@@ -6,6 +6,8 @@ defmodule Ex338Web.Router do
   use Pow.Extension.Phoenix.Router, otp_app: :ex338
   import Phoenix.LiveDashboard.Router
 
+  use Kaffy.Routes, scope: "/kaffy_admin", pipe_through: [:protected, :remove_root_layout]
+
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)

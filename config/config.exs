@@ -83,6 +83,11 @@ config :ex338, Ex338Web.PowMailer,
 
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
+config :kaffy,
+  otp_app: :ex338,
+  ecto_repo: Ex338.Repo,
+  router: Ex338Web.Router
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
